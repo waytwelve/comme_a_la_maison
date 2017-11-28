@@ -1,0 +1,7 @@
+<p>liste de nos meals</p>
+
+<ul>
+  <% @meals.each do |meal| %>
+  <li> <%= meal.name %> : <%= meal.user_id %></li>
+ <% end %>
+</ul>
