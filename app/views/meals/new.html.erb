@@ -1,0 +1,12 @@
+
+<%= simple_form_for @meal do |f| %>
+  <%= f.input :name, label: false, placeholder: 'name' %>
+  <%= f.input :category, label: false, collection: ['oriental', 'french'] %>
+  <%= f.input :quantity, label: false, placeholder: 'quantity' %>
+  <%= f.input :country, label: false, placeholder: 'country' %>
+  <%= f.input :is_delivery, label: false, placeholder: 'Livre ?' %>
+  <%= f.input :cooked_at, label: false, placeholder: 'Heure de cuisson' %>
+  <%= f.input :stars, label: false, collection: [1,2,3,4,5] %>
+  <%= f.button :submit %>
+<% end %>
+
