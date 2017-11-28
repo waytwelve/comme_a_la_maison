@@ -1,10 +1,12 @@
 class MealsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @meals = current_user.meals
-  end
+    @meals = Meal.all
+   end
 
   def show
+    @meal = Meal.find(params[:id])
 
   end
 
@@ -14,10 +16,12 @@ class MealsController < ApplicationController
   end
 
   def create
+    @meal = Meal.new
 
   end
 
   def edit
+
 
   end
 
@@ -26,6 +30,8 @@ class MealsController < ApplicationController
   end
 
   def destroy
+    @meal = Meals.find(params[:id])
+    @meal.destroy
 
   end
 
