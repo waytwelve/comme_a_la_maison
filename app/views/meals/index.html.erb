@@ -1,54 +1,60 @@
 <div class="row">
-  <div class="col-sm-8 text-center" style="margin-top: 15px;">
-    <% @meals.each do |meal| %>
-
-      <div class="col-sm-6">
-          <div class="panel panel-info">
-              <div class="panel-heading">
-                  <%= meal.name %>
-              </div>
-              <div class="panel-body">
-                <%= meal.description %>
-              </div>
-              <div class="panel-footer">
-                <div class="">
-                    <%= link_to 'voir', meal_path(meal), class: 'btn btn-success' %>
-                    <%= link_to 'editer', edit_meal_path(meal), class: 'btn btn-warning' %>
-                    <%= link_to 'supprimer', meal_path(meal), class: 'btn btn-danger', method: :delete, data: {confirm: 'Sur ?'} %>
+  
+       <div class="col-md-3">
+  
+             <ul class="sidebar-list">
+  
+                    <li class="sidebar-item"><%= link_to "Mes Repas", meals_path, class: "sidebar-link active" %></li>
+  
+             </ul>
+  
+        </div>
+  
+        <div class="col-md-9">
+  
+             <div class="panel panel-default">
+  
+                  <div class="panel-heading">Mes Repas
+  
+                  </div>
+  
+   
+                 <div class="panel-body">
+  
+                       <% @meals.each do |meal| %>
+  
+                          <div class="row">
+  
+                                  <div class="col-md-2">
+  
+                                    <%= cl_image_tag meal.photo, :width=>84, :height=>64, :crop=>"scale" %> 
+  
+                                  </div>                              
+  
+                                  <div class="col-md-5 text-center">
+  
+                                         <h4><%= meal.name %></h4>
+  
+                                  </div>                              
+  
+                                  <div class="col-md-5 right">
+  
+                                      <%= link_to "Voir", meal_path(meal), class: "btn btn-success btn-sm" %>
+                                      <%= link_to "Mettre à jour", edit_meal_path(meal), class: "btn btn-primary btn-sm" %>
+                                      <%= link_to "Supprimez", meal_path(meal), class: "btn btn-danger btn-sm", method: :delete, data: {confirm: 'Sur ?'} %>
+  
+                                  </div>
+  
+                         </div>
+  
+                         <hr>
+  
+                    <% end %>
+  
                 </div>
-              </div>
-          </div>
+  
+            </div>
+  
       </div>
-    <% end %>
+  
   </div>
-  <div class="col-sm-4 text-center" style="margin-top: 15px;">
-      <div class="panel panel-success">
-					<div class="panel-heading">
-						<h3 class="panel-title">Reservations</h3>
-					</div>
-					<div class="panel-body">
-						<input type="text" class="form-control" id="task-table-filter" data-action="filter" data-filters="#task-table" placeholder="Filtrez Reservations" />
-          </div>
-
-					<table class="table table-hover" id="task-table">
-						<thead>
-							<tr>
-								<th class="text-center">No</th>
-								<th class="text-center">Reservation</th>
-								<th class="text-center">Date</th>
-								<th class="text-center">Prix</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr class="text-center">
-								<td>7</td>
-								<td>Repas x</td>
-								<td>13/06/2018</td>
-								<td>120 E</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-  </div>
-
-</div>
