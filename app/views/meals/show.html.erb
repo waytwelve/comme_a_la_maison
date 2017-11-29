@@ -1,1 +1,22 @@
-<p><%= @meal.name %></p>
+<div class="row">
+    <div class="col-sm-4 text-center" style="margin-top: 15px;">
+        <div class="panel panel-info">
+            <div class="panel-heading preview">
+                    <%= cl_image_tag @meal.photo %>
+                </div>
+                <div class="panel-body">
+                    <fieldset>
+                        <legend>Description</legend>
+                        <p>
+                            <%= @meal.description %>
+                        </p>
+                    </fieldset>
+
+                </div>
+                <div class="panel-footer">
+                    <%= link_to 'revenir a ma liste', meals_path, class: 'btn btn-primary btn-block' %>
+            </div>
+        </div>
+    </div>
+</div>
+
