@@ -1,7 +1,55 @@
-<p>liste de nos meals</p>
+<div class="row">
+  <div class="col-sm-8 text-center" style="margin-top: 15px;">
 
-<ul>
-  <% @meals.each do |meal| %>
-  <li> <%= meal.name %> : <%= meal.user_id %></li>
- <% end %>
-</ul>
+    <% @meals.each do |meal| %>
+    
+      <div class="col-sm-6">
+          <div class="panel panel-info"> 
+              <div class="panel-heading">
+                  <%= meal.name %> 
+              </div>
+              <div class="panel-body">
+                <%= meal.description %>
+              </div>
+              <div class="panel-footer">
+                <div class="">
+                    <%= link_to 'voir', meal_path(meal), class: 'btn btn-success' %>
+                    <%= link_to 'editer', edit_meal_path(meal), class: 'btn btn-warning' %>
+                    <%= link_to 'supprimer', meal_path(meal), class: 'btn btn-danger', method: :delete, data: {confirm: 'Sur ?'} %>
+                </div>
+              </div>
+          </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-sm-4 text-center" style="margin-top: 15px;">
+      <div class="panel panel-success">
+					<div class="panel-heading">
+						<h3 class="panel-title">Reservations</h3>
+					</div>
+					<div class="panel-body">
+						<input type="text" class="form-control" id="task-table-filter" data-action="filter" data-filters="#task-table" placeholder="Filtrez Reservations" />
+          </div>
+          
+					<table class="table table-hover" id="task-table">
+						<thead>
+							<tr>
+								<th class="text-center">No</th>
+								<th class="text-center">Reservation</th>
+								<th class="text-center">Date</th>
+								<th class="text-center">Prix</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="text-center">
+								<td>7</td>
+								<td>Repas x</td>
+								<td>13/06/2018</td>
+								<td>120 E</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+  </div>
+
+</div>
