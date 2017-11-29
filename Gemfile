@@ -17,6 +17,8 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'country_select'
+gem 'carrierwave'
+gem 'cloudinary'
 
 group :development, :test do
   gem 'pry-byebug'
