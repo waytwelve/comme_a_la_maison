@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171128232610) do
+ActiveRecord::Schema.define(version: 20171129104218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,15 @@ ActiveRecord::Schema.define(version: 20171128232610) do
     t.text     "description"
     t.integer  "price"
     t.boolean  "is_active"
+    t.string   "photo"
     t.index ["user_id"], name: "index_meals_on_user_id", using: :btree
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.integer  "meal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meal_id"], name: "index_photos_on_meal_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,9 +58,12 @@ ActiveRecord::Schema.define(version: 20171128232610) do
     t.string   "address"
     t.integer  "age"
     t.string   "bio"
+    t.string   "avatar"
+    t.string   "phone_number"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
   add_foreign_key "meals", "users"
+  add_foreign_key "photos", "meals"
 end

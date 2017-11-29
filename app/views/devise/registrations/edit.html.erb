@@ -1,62 +1,94 @@
-<div class="row">
-  <div class="col-md-8 col-md-offset-2 text-center">
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="col-md-3">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+    <ul class="sidebar-list">
 
-  <div class="form-inputs">
-    <div class="form-group">
-      <%= f.input :email, required: true, autofocus: true, class: 'form-control', placeholder: 'email' %>
-    </div>
+         <li class="sidebar-item">
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+              <%= link_to 'Modifier mon profil', edit_user_registration_path, class: 'sidebar-link active' %>
 
+         </li>
 
-    <div class="form-group">
-      <%= f.input :last_name, autocomplete: "on", placeholder: 'Nom de famille', required: false, label: false %>
-    </div>
+    </ul>
 
-    <div class="form-group">
-      <%= f.input :first_name, required: false, placeholder: 'Prenom', class: 'form-control' %>
-    </div>
+<br>
 
-    <div class="form-group">
-      <%= f.input :address, hint: "", placeholder: 'Votre Address', required: true, class: 'form-control', label: false %>
-    </div>
-    <div class="form-group">
-      <%= f.input :bio %>
-    </div>
+<%= link_to 'Voir mon profil', user_path(current_user.id), class: 'btn btn-default wide' %>
 
-
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
-
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Update", class: 'btn btn-success btn-block' %>
-  </div>
-<% end %>
-
-<div class="row">
-  <div class="col-md-8 col-md-offset-2 text-center">
-    <h3>Cancel my account</h3>
-
-    <div class="row">
-      <div class="col-md-12 col-offset-3">
-        <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger btn-block' %></p>
-        <%= link_to "Back", :back, class: 'btn btn-primary btn-block' %>
-      </div>
-    </div>
-
-
-  </div>
 </div>
-  </div>
+
+<div class="col-md-7 text-center">
+
+      <div class="panel panel-default">
+
+          <div class="panel-heading">Mon profil</div>
+
+               <div class="panel-body">
+
+                   <div class="container">
+
+                     <h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+                       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                         <%= f.error_notification %>
+
+                         <div class="form-inputs">
+                                        <div class="form-group">
+                                          <%= f.input :email, required: true, autofocus: true, class: 'form-control', placeholder: 'email' %>
+                                        </div>
+
+                                        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                                          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+                                        <% end %>
+
+
+                                        <div class="form-group">
+                                          <%= f.input :last_name, autocomplete: "on", placeholder: 'Nom de famille', required: false, label: false %>
+                                        </div>
+
+                                      <div class="form-group">
+                                        <%= f.input :first_name, required: false, placeholder: 'Prenom', class: 'form-control' %>
+                                      </div>
+
+                                      <div class="form-group">
+                                      <%= f.input :phone_number, required: false, placeholder: 'Numero de Telephone', class: 'form-control' %>
+                                      </div>
+
+                                      <div class="form-group">
+                                        <label>Upload de votre avatar</label>
+                                        <%= f.file_field :avatar %>
+                                        <%= f.hidden_field :avatar_cache, as: :hidden %>
+                                      </div>
+
+
+                                      <div class="form-group">
+                                        <%= f.input :address, hint: "", placeholder: 'Votre Address', required: true, class: 'form-control', label: false %>
+                                      </div>
+                                      <div class="form-group">
+                                        <%= f.input :bio %>
+                                      </div>
+
+                                      <div class="form-group">
+                                        <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", class: 'form-control',  required: false %>
+                                      </div>
+
+                                    <div class="form-group">
+                                      <%= f.input :password_confirmation, required: false %>
+                                    </div>
+
+                                    <div class="form-group">
+                                      <%= f.input :current_password, hint: "OBLIGATOIRE pour tout changement", required: true, class: 'form-control', :input_html => { class: "input-activate" }, :hint_html => { class: "text-danger" } %>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-actions">
+                                    <%= f.button :submit, "Update", class: 'btn btn-success btn-block' %>
+                                  </div>
+                              <% end %>
+                          </div>
+                  </div>
+              </div>
+        </div>
+      </div>
 </div>
 
 

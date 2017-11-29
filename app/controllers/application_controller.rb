@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
       # For additional in app/views/devise/registrations/edit.html.erb
-      devise_parameter_sanitizer.permit(:account_update, keys: [:email, :last_name, :first_name, :address, :bio])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:email, :last_name, :first_name, :address, :bio, :phone_number, :avatar])
     end
 end
