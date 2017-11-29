@@ -5,6 +5,9 @@ class MealsController < ApplicationController
   # before_action :authenticate_user!, except: [:show]
   before_action :same_user, only: [:edit, :update]
 
+
+  def home
+  end
   def index
     @meals = Meal.all
    end
