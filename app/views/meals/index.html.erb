@@ -21,7 +21,7 @@
               <div class="panel-footer">
                 <div class="">
                     <%= link_to 'voir', meal_path(meal), class: 'btn btn-success' %>
-                    <%= link_to 'editer', edit_meal_path(meal), class: 'btn btn-warning' %>
+                    <%= link_to 'editer', edit_meal_path(), class: 'btn btn-warning' %>
                     <%= link_to 'supprimer', meal_path(meal), class: 'btn btn-danger', method: :delete, data: {confirm: 'Sur ?'} %>
                 </div>
               </div>
