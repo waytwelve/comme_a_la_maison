@@ -2,7 +2,7 @@
 
 <ul>
   <% @meals.each do |meal| %>
-  <li> <%= meal.name %> <%= meal.quantity %> <%= link_to "voir", meal_path(meal) %><%= link_to "editer", edit_meal_path(meal) %><%= link_to "delete", meal_path(meal), method: :delete %></li>
+  <li> <%= meal.name %> <%= meal.quantity %> <%= link_to "voir", meal_path(meal) %> <%= link_to "editer", edit_meal_path(meal) %> <%= link_to "delete", meal_path(meal), method: :delete, data: {confirm: "etes-vous sur?"} %></li>
 
  <% end %>
 </ul>
