@@ -1,4 +1,6 @@
 
+<h2>modifier votre repas</h2>
+
 <%= simple_form_for(@meal) do |f| %>
   <%= f.input :name, label: false, placeholder: 'name' %>
   <%= f.input :category, label: false, collection: ['oriental', 'french'] %>
@@ -8,4 +10,3 @@
   <%= f.input :cooked_at, label: false, placeholder: 'Heure de cuisson' %>
   <%= f.button :submit %>
 <% end %>
-
