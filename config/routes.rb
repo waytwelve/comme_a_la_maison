@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'meals#index'
+  devise_for :users
 
-devise_for :users
-resources :users, only: [:show, :update]
-root to: 'pages#home'
-
-resources :meals
+  resources :meals
 end

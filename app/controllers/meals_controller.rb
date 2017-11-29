@@ -1,14 +1,16 @@
 class MealsController < ApplicationController
- 
+  skip_before_action :authenticate_user!, only: [:index]
+
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show]
   before_action :same_user, only: [:edit, :update]
 
   def index
-    @meals = current_user.meals
-  end
+    @meals = Meal.all
+   end
 
   def show
+    @meal = Meal.find(params[:id])
   end
 
   def new
@@ -32,7 +34,7 @@ class MealsController < ApplicationController
 
   def edit
     @photos = @meal.photos
-
+    @meal = Meal.find(params[:id])
   end
 
   def update
@@ -59,10 +61,6 @@ class MealsController < ApplicationController
     @meal = Meal.find(params[:id])
   end
 
-  def meal_params
-    params.require(:meal).permit(:name, :category, :contry, :quantity, :is_delivery, :cooked_at, :description, :photo, :photo_cache)
-  end
-
   def same_user
     if current_user.id != @meal.user_id
       flash[:danger] = "Vous ne pouver pas modifier cette page !"
@@ -70,4 +68,9 @@ class MealsController < ApplicationController
     end
   end
 
+  private
+
+   def meal_params
+    params.require(:meal).permit(:name, :category, :contry, :quantity, :is_delivery, :cooked_at, :description, :photo, :photo_cache)
+  end
 end
