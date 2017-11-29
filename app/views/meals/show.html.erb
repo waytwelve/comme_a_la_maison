@@ -6,13 +6,13 @@
                 </div>
                 <div class="panel-body">
                         <%= link_to root_path(), :remote => true, :class => "vote-up default button", class: 'stars' do %>
-                            <span>Reviews : </span>
+                            <span>Notes : </span>
                             <%= image_tag("stars.png", size: "32") %>
                             <%= image_tag("stars.png", size: "32") %>
                             <%= image_tag("stars.png", size: "32") %>
                         <% end %>
                     <hr>
-                    <a href="test">Commentaires : (51)</a>
+                    <a href="test">Reviews : (51)</a>
 
                 </div>
                 <div class="panel-footer">
@@ -37,10 +37,10 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th>dyn</th>
-                                    <th>dyn</th>
-                                    <th>dyn</th>
-                                    <th>dyn</th>
+                                    <td class="text-center"><%= @meal.quantity %></td>
+                                    <td class="text-center"><%= @meal.cooked_at %></td>
+                                    <td class="text-center"><%= @meal.category %></td>
+                                    <td class="text-center"><%= @meal.country %></td>
                                 </tr>
                                 <tr>
                                     <td colspan="4">
@@ -53,7 +53,7 @@
                     </div>
                     <div class="panel-footer">
                         <div>
-                            fff
+                                <%= cl_image_tag("Capture_d_écran_2017-11-29_à_20.25.29_bxlq8g.png", class: 'avatar-full') %>
                         </div>
                 </div>
             </div>
