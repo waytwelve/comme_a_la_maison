@@ -39,7 +39,7 @@ class MealsController < ApplicationController
   end
 
   def destroy
-    @meal = Meal.find(meal_params)
+    @meal = Meal.find(params[:id])
     @meal.destroy
     redirect_to root_path
 
