@@ -10,3 +10,16 @@
 .panel-heading.preview img{
     width: 100%;
 }
+
+
+.equipments li {
+    margin-bottom: 10px;
+    list-style-type: none;
+}
+.text-line-through {
+  text-decoration: line-through
+}
+
+.panel-title{
+    font-family: $panel-title;
+}

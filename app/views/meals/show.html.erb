@@ -5,12 +5,14 @@
                     <%= cl_image_tag @meal.photo %>
                 </div>
                 <div class="panel-body">
-                    <fieldset>
-                        <legend>Description</legend>
-                        <p>
-                            <%= @meal.description %>
-                        </p>
-                    </fieldset>
+                        <%= link_to root_path(), :remote => true, :class => "vote-up default button", class: 'stars' do %>
+                            <span>Notes : </span>
+                            <%= image_tag("stars.png", size: "32") %>
+                            <%= image_tag("stars.png", size: "32") %>
+                            <%= image_tag("stars.png", size: "32") %>
+                        <% end %>
+                    <hr>
+                    <a href="test">Reviews : (51)</a>
 
                 </div>
                 <div class="panel-footer">
@@ -18,5 +20,43 @@
             </div>
         </div>
     </div>
+    <div class="col-sm-7 text-center" style="margin-top: 15px;">
+            <div class="panel panel-primary">
+                <div class="panel-heading preview panel-title">
+                        <%= @meal.name %>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Nbr de parts</th>
+                                    <th class="text-center">Cooked_at</th>
+                                    <th class="text-center">Category</th>
+                                    <th class="text-center">Country</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center"><%= @meal.quantity %></td>
+                                    <td class="text-center"><%= @meal.cooked_at %></td>
+                                    <td class="text-center"><%= @meal.category %></td>
+                                    <td class="text-center"><%= @meal.country %></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">
+                                        <%= @meal.description %>
+                                    </td>
+                                </tr>
+                                   
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-footer">
+                        <div>
+                                <%= cl_image_tag("Capture_d_écran_2017-11-29_à_20.25.29_bxlq8g.png", class: 'avatar-full') %>
+                        </div>
+                </div>
+            </div>
+        </div>
 </div>
 

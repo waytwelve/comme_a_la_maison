@@ -1,10 +1,12 @@
 class MealsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: [:home]
 
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
   # before_action :authenticate_user!, except: [:show]
   before_action :same_user, only: [:edit, :update]
 
+  def home
+  end
   def index
     @meals = Meal.all
    end
